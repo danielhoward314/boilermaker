@@ -1,5 +1,6 @@
 const User = require('./user')
 const Sentiment = require('./sentiment')
+const Post = require('./post')
 /**
  * If we had any associations to make, this would be a great place to put them!
  * ex. if we had another model called BlogPost, we might say:
@@ -7,7 +8,9 @@ const Sentiment = require('./sentiment')
  *    BlogPost.belongsTo(User)
  */
 
- Sentiment.belongsTo(User)
+ User.hasMany(Post)
+ Post.belongsTo(User)
+ Sentiment.belongsTo(Post)
 
 
 /**
